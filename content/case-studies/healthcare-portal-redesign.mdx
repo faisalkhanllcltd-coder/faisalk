@@ -1,0 +1,55 @@
+---
+title: "Patient Portal & Acquisition Funnel: Accessible & High-Converting"
+slug: "healthcare-portal-redesign"
+client: "CarePoint Health"
+role: "Frontend Architect & Accessibility Specialist"
+timeline: "2.5 Months"
+date: "2025-11-10"
+summary: "Architected a fully accessible, WCAG 2.2 AA-compliant patient intake portal and medical consultation booking funnel, achieving zero accessibility violations and an 85% increase in verified patient bookings."
+metrics:
+  - label: "WCAG 2.2 AA Compliance"
+    value: "100%"
+  - label: "Consultation Bookings"
+    value: "+85%"
+  - label: "Interaction to Next Paint (INP)"
+    value: "48ms"
+  - label: "Form Abandonment Drop"
+    value: "-54%"
+tags:
+  - "Accessibility (a11y)"
+  - "WCAG 2.2 AA"
+  - "Next.js"
+  - "Tailwind CSS"
+  - "UX Architecture"
+featured: false
+---
+
+## Executive Summary
+
+CarePoint Health needed to modernize their public appointment scheduling system to comply with strict state accessibility mandates (WCAG 2.2 AA) while resolving a crippling 71% patient abandonment rate during initial provider booking.
+
+I served as Frontend Architect & Accessibility Specialist, redesigning the user journey from discovery to appointment confirmation with rock-solid keyboard navigation, screen reader accessibility, and sub-50ms interaction latency.
+
+## The Challenge
+
+1. **Accessibility Non-Compliance**: The previous booking modal failed contrast checks, lacked ARIA landmarks, and was completely unusable via keyboard tab navigation.
+2. **High Cognitive Load**: Complex multi-screen questionnaires overwhelmed patients seeking urgent care consultations.
+3. **Sluggish Mobile Responsiveness**: Slow client hydration produced severe input delay (INP > 380ms) on low-end smartphones.
+
+## Strategy & Technical Architecture
+
+### 1. Semantic DOM & WCAG 2.2 AA Engineering
+Rebuilt the entire appointment booking interface with semantic HTML5 elements (`<fieldset>`, `<legend>`, `<label>`), explicit focus traps for dialogs, and high-contrast color tokens tested rigorously across light and dark display modes.
+
+### 2. Progressive Disclosure Intake Workflow
+Redesigned the intake form using a progressive disclosure pattern that breaks questions into digestible, context-aware steps with live validation and auto-save capabilities.
+
+### 3. Native Responsiveness & Low-Latency State
+Avoided heavyweight client UI component libraries in favor of native browser elements and lightweight React 19 hooks, ensuring that every touch and keyboard interaction registered under 50ms INP.
+
+## Measured Business Impact
+
+- **100% WCAG 2.2 AA Audit Pass**: Certified compliant by independent third-party accessibility testers with zero critical, serious, or moderate violations.
+- **+85% Increase in Completed Bookings**: Monthly online appointment volume grew from 640 to 1,184 within two months.
+- **48ms Interaction to Next Paint (INP)**: Ultra-responsive interaction profile across all mobile devices.
+- **-54% Patient Intake Abandonment**: Drop-off rates plummeted as friction points were eliminated.
