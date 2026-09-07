@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllCaseStudies } from "@/lib/case-studies";
+import { Hero3D } from "@/components/hero/Hero3D";
 
 export default async function HomePage() {
   const caseStudies = await getAllCaseStudies();
@@ -8,36 +9,42 @@ export default async function HomePage() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-12 md:py-20">
       {/* Hero Section */}
-      <section aria-labelledby="hero-heading" className="space-y-6">
-        <div className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-blue-700/10 ring-inset">
-          Available for Select Contracts &amp; Full-Time Roles
+      <section aria-labelledby="hero-heading" className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        <div className="space-y-6 lg:col-span-7">
+          <div className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-blue-700/10 ring-inset">
+            Available for Select Contracts &amp; Full-Time Roles
+          </div>
+
+          <h1
+            id="hero-heading"
+            className="text-4xl font-extrabold tracking-tight text-gray-950 sm:text-5xl md:text-6xl leading-[1.1]"
+          >
+            Building high-performance web products that{" "}
+            <span className="text-blue-600">drive qualified leads.</span>
+          </h1>
+
+          <p className="text-lg text-gray-600 leading-relaxed sm:text-xl">
+            I am a web developer and digital marketer bridging technical architecture with conversion science. I engineer sub-second web applications, dominate organic search, and eliminate funnel friction.
+          </p>
+
+          <div className="flex flex-wrap gap-4 pt-2">
+            <Link
+              href="/work"
+              className="rounded-lg bg-gray-950 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            >
+              View Case Studies
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-800 shadow-xs transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            >
+              Start a Conversation
+            </Link>
+          </div>
         </div>
 
-        <h1
-          id="hero-heading"
-          className="text-4xl font-extrabold tracking-tight text-gray-950 sm:text-5xl md:text-6xl max-w-3xl leading-[1.1]"
-        >
-          Building high-performance web products that{" "}
-          <span className="text-blue-600">drive qualified leads.</span>
-        </h1>
-
-        <p className="max-w-2xl text-lg text-gray-600 leading-relaxed sm:text-xl">
-          I am a web developer and digital marketer bridging technical architecture with conversion science. I engineer sub-second web applications, dominate organic search, and eliminate funnel friction.
-        </p>
-
-        <div className="flex flex-wrap gap-4 pt-4">
-          <Link
-            href="/work"
-            className="rounded-lg bg-gray-950 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          >
-            View Case Studies
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-800 shadow-xs transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-          >
-            Start a Conversation
-          </Link>
+        <div className="lg:col-span-5 w-full">
+          <Hero3D />
         </div>
       </section>
 
