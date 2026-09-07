@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15   # hard ceiling — kills any repeat of the hang
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run build
+
+      - name: Install Playwright browsers (cached, CI-only)
+        run: npx playwright install --with-deps chromium
+
+      - name: Lighthouse CI
+        run: npx @lhci/cli@0.14.x autorun
