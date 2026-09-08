@@ -1,0 +1,69 @@
+---
+title: "Quran Gateway LMS — Multi-Audience Learning Management Platform"
+slug: "quran-gateway-lms"
+client: "Quran Gateway"
+role: "Full-Stack Developer"
+timeline: "2024 – Present"
+date: "2026-02-01"
+summary: "Engineering a multi-tier learning management system (~90% complete) featuring dual admin and guardian portals, WebRTC virtual classrooms via LiveKit Cloud, auto-generated progress reporting, and child-safety AI monitoring."
+metrics:
+  - label: "Platform Completion"
+    value: "~90%"
+  - label: "Staff Modules"
+    value: "14 Permissions"
+  - label: "Year 1 Capacity Target"
+    value: "1K–10K Users"
+  - label: "WebRTC Audio/Video"
+    value: "LiveKit Cloud"
+tags:
+  - "TanStack Start"
+  - "React 19"
+  - "Tailwind CSS v4"
+  - "Supabase"
+  - "LiveKit Cloud"
+  - "Zod"
+featured: true
+---
+
+## System Overview & Objectives
+
+Quran Gateway LMS is a custom learning management platform engineered to manage the complex operational demands of an online educational academy. Currently at approximately 90% completion, the system serves two distinct user bases: administrative staff running academy operations, and parents/guardians monitoring their children's educational development.
+
+The platform replaces fragmented manual workflows (spreadsheets, third-party messaging apps, disjointed video links) with a unified, secure portal designed to support a projected capacity of 1,000 to 10,000 active users in its initial operational year.
+
+## Modern Full-Stack Architecture
+
+The platform is engineered with modern full-stack web standards, prioritizing type safety, real-time synchronization, and high-performance server rendering:
+
+- **TanStack Start (React 19 & SSR)**: Full-stack React framework providing streaming server-side rendering, robust server functions, and automatic code-splitting.
+- **TanStack Router & Query**: Type-safe client routing, deeply integrated search parameter state management, and optimistic cache invalidation for instant dashboard interactions.
+- **Tailwind CSS v4 & shadcn/ui (Radix Primitives)**: Accessible, composable UI components with strict keyboard navigation and ARIA conformance.
+- **Supabase**: Managed PostgreSQL database utilizing Row Level Security (RLS) policies for multi-tenant isolation, Supabase Auth for session handling, and Edge Functions for background tasks.
+- **Zod**: End-to-end schema validation enforcing strict data contracts between client inputs, server functions, and database mutations.
+- **LiveKit Cloud**: Scalable WebRTC infrastructure powering low-latency live audio and video communication directly inside the virtual classroom.
+
+## Dual-Audience Functional Scope
+
+### 1. Staff Administrative Portal (14 Permission Modules)
+The staff administration portal is organized around 14 granular permission modules, granting role-based access control across:
+- Student and instructor onboarding.
+- Course schedule orchestration and room assignment.
+- Financial records and tuition invoice tracking.
+- System audit logging and dispute resolution.
+
+### 2. Parent & Guardian Portal
+- **Guardian-Linking Management**: Multi-student household management allowing parents to link and oversee multiple siblings under a single unified dashboard.
+- **Real-Time Attendance & Daily Reports**: Instructors log session completion, lesson milestones, and student engagement daily.
+- **Auto-Generated Monthly PDF Progress Reports**: Daily instructor records automatically compile into comprehensive monthly PDF progress digests dispatched directly to parents.
+
+## Purpose-Built Child Safety: In-Class AI Monitoring
+
+A cornerstone architectural requirement for the academy was child protection. Rather than relying on generic keyword blockers or manual spot-checks, an integrated AI monitoring layer was engineered specifically to detect and flag situations where an instructor attempts to solicit off-platform contact with a minor student (e.g., requesting private phone numbers, personal social media handles, or unmonitored external video channels).
+
+When an off-platform contact attempt is detected, the event triggers immediate automated administrative alerts and session logging, providing a concrete layer of child safety defense.
+
+## Deployment Status & Design Target
+
+Quran Gateway LMS is currently in late-stage development (~90% complete) and undergoing internal feature validation. The architecture has been benchmarked and designed for a target capacity of 1,000 to 10,000 users in year one.
+
+[NEEDS: Final production launch date and active student enrollment figures]

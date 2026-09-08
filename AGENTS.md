@@ -149,3 +149,18 @@ Every task ends in VERIFICATION mode. walkthrough.md must include: actual
 Lighthouse scores from the CI run, a screenshot at desktop viewport, a
 screenshot at throttled mobile viewport, and explicit confirmation that
 prefers-reduced-motion and no-WebGL fallbacks were tested, not assumed.
+
+## Content authenticity — non-negotiable
+Every case study, bio line, employment fact, and statistic on this site
+must trace to a fact in CONTENT.md at repo root. Never invent a company
+name, client outcome, or metric to fill a gap. If a section needs
+something not in CONTENT.md (a number, a screenshot, a quote), leave a
+`[NEEDS: what's missing]` placeholder in the content file and flag it in
+that task's walkthrough.md — do not fill it with a plausible-sounding
+invention. This applies to every phase, not just the current content pass.
+
+## Runtime version policy
+Don't hardcode a specific Node major version in this file — it goes stale.
+Use whatever is the current Active LTS at the time you're working (check
+via `node --version` against nodejs.org's release schedule if unsure), and
+note in implementation_plan.md which version you're building against.
