@@ -63,8 +63,8 @@ export default async function HomePage() {
           <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">LMS Platform Built</div>
         </div>
         <div>
-          <div className="text-3xl font-extrabold text-gray-950 sm:text-4xl">4</div>
-          <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">Languages (EN/AR/UR/PA)</div>
+          <div className="text-3xl font-extrabold text-gray-950 sm:text-4xl">Full Month</div>
+          <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">Satisfaction Guarantee</div>
         </div>
       </section>
 
