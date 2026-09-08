@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { JsonLd } from "@/components/JsonLd";
 import { getPersonSchema, getWebSiteSchema, SITE_CONFIG } from "@/lib/metadata";
+import { ScrollRevealProvider } from "@/components/motion/ScrollRevealProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ export default function RootLayout({
         <JsonLd data={websiteJsonLd} />
       </head>
       <body className="flex min-h-screen flex-col bg-white text-gray-900 antialiased selection:bg-blue-600 selection:text-white">
+        <ScrollRevealProvider />
         <Header />
         <main id="main-content" className="flex-1">
           {children}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllCaseStudies } from "@/lib/case-studies";
 import { Hero3D } from "@/components/hero/Hero3D";
+import { DotLottieIcon } from "@/components/ui/DotLottieIcon";
 
 export default async function HomePage() {
   const caseStudies = await getAllCaseStudies();
@@ -11,7 +12,12 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section aria-labelledby="hero-heading" className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
         <div className="space-y-6 lg:col-span-7">
-          <div className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-blue-700/10 ring-inset">
+          <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3.5 py-1.5 text-xs font-semibold text-blue-700 ring-1 ring-blue-700/10 ring-inset">
+            <DotLottieIcon
+              src="/lottie/status-pulse.lottie"
+              className="w-2.5 h-2.5"
+              fallback={<span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" aria-hidden="true" />}
+            />
             Available for Select Contracts &amp; Full-Time Roles
           </div>
 
@@ -30,9 +36,16 @@ export default async function HomePage() {
           <div className="flex flex-wrap gap-4 pt-2">
             <Link
               href="/work"
-              className="rounded-lg bg-gray-950 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              className="group inline-flex items-center gap-2 rounded-lg bg-gray-950 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             >
-              View Case Studies
+              <span>View Case Studies</span>
+              <DotLottieIcon
+                src="/lottie/arrow-interaction.lottie"
+                className="w-3.5 h-3.5"
+                loop={false}
+                hover={true}
+                fallback={<span aria-hidden="true" className="transition-transform group-hover:translate-x-1">&rarr;</span>}
+              />
             </Link>
             <Link
               href="/contact"
@@ -49,7 +62,10 @@ export default async function HomePage() {
       </section>
 
       {/* Metrics Proof Bar */}
-      <section aria-label="Key Outcomes" className="mt-16 grid grid-cols-2 gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:grid-cols-4 sm:p-8">
+      <section
+        aria-label="Key Outcomes"
+        className="scroll-reveal mt-16 grid grid-cols-2 gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:grid-cols-4 sm:p-8"
+      >
         <div>
           <div className="text-3xl font-extrabold text-gray-950 sm:text-4xl">9</div>
           <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">Live Courses Shipped</div>
@@ -69,7 +85,7 @@ export default async function HomePage() {
       </section>
 
       {/* Featured Work */}
-      <section aria-labelledby="featured-heading" className="mt-24">
+      <section aria-labelledby="featured-heading" className="scroll-reveal mt-24">
         <div className="flex items-end justify-between">
           <div>
             <h2 id="featured-heading" className="text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">
@@ -91,7 +107,7 @@ export default async function HomePage() {
           {featuredStudies.map((study) => (
             <article
               key={study.slug}
-              className="flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-xs transition hover:border-blue-300 hover:shadow-md sm:p-8"
+              className="scroll-reveal flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-xs transition hover:border-blue-300 hover:shadow-md sm:p-8"
             >
               <div>
                 <div className="flex items-center justify-between text-xs font-semibold text-gray-500">
@@ -142,7 +158,7 @@ export default async function HomePage() {
       </section>
 
       {/* Core Competencies */}
-      <section aria-labelledby="services-heading" className="mt-24 border-t border-gray-200 pt-16">
+      <section aria-labelledby="services-heading" className="scroll-reveal mt-24 border-t border-gray-200 pt-16">
         <h2 id="services-heading" className="text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl">
           Core Competencies
         </h2>
@@ -151,21 +167,21 @@ export default async function HomePage() {
         </p>
 
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
+          <div className="scroll-reveal rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
             <div className="text-lg font-bold text-gray-950">1. Full-Stack Web Development</div>
             <p className="mt-2 text-sm text-gray-600 leading-relaxed">
               Production Next.js App Router, React 19, TypeScript, and Tailwind CSS. Clean, maintainable architectures built for speed, responsiveness, and zero technical debt.
             </p>
           </div>
 
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
+          <div className="scroll-reveal scroll-reveal-delay-1 rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
             <div className="text-lg font-bold text-gray-950">2. Technical SEO &amp; Indexation</div>
             <p className="mt-2 text-sm text-gray-600 leading-relaxed">
               Granular schema.org JSON-LD structured data, dynamic XML sitemaps, fast TTFB, and Core Web Vitals optimization to win high-intent search visibility.
             </p>
           </div>
 
-          <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
+          <div className="scroll-reveal scroll-reveal-delay-2 rounded-xl border border-gray-200 bg-white p-6 shadow-xs">
             <div className="text-lg font-bold text-gray-950">3. Conversion Rate Optimization (CRO)</div>
             <p className="mt-2 text-sm text-gray-600 leading-relaxed">
               Frictionless form design, checkout flow engineering, client-side event tracking, and data-backed UX decisions that increase inquiry rates.
@@ -175,7 +191,7 @@ export default async function HomePage() {
       </section>
 
       {/* Bottom CTA */}
-      <section aria-labelledby="cta-heading" className="mt-24 rounded-2xl bg-gray-950 p-8 text-center text-white sm:p-12">
+      <section aria-labelledby="cta-heading" className="scroll-reveal mt-24 rounded-2xl bg-gray-950 p-8 text-center text-white sm:p-12">
         <h2 id="cta-heading" className="text-2xl font-bold sm:text-3xl">
           Need a developer who understands growth?
         </h2>

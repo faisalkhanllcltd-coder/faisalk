@@ -116,7 +116,7 @@ export default function AboutPage() {
       </section>
 
       {/* Employment History */}
-      <section aria-labelledby="experience-heading" className="mt-16 border-t border-gray-200 pt-12">
+      <section aria-labelledby="experience-heading" className="scroll-reveal mt-16 border-t border-gray-200 pt-12">
         <h2 id="experience-heading" className="text-2xl font-bold tracking-tight text-gray-950">
           Employment History
         </h2>
@@ -124,7 +124,7 @@ export default function AboutPage() {
           {employment.map((job) => (
             <div
               key={job.role}
-              className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs"
+              className="scroll-reveal rounded-xl border border-gray-200 bg-white p-6 shadow-xs"
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                 <div>
@@ -144,7 +144,7 @@ export default function AboutPage() {
       </section>
 
       {/* Education */}
-      <section aria-labelledby="education-heading" className="mt-16 border-t border-gray-200 pt-12">
+      <section aria-labelledby="education-heading" className="scroll-reveal mt-16 border-t border-gray-200 pt-12">
         <h2 id="education-heading" className="text-2xl font-bold tracking-tight text-gray-950">
           Education &amp; Credentials
         </h2>
@@ -152,7 +152,7 @@ export default function AboutPage() {
           {education.map((edu) => (
             <div
               key={edu.degree}
-              className="rounded-xl border border-gray-200 bg-gray-50 p-6"
+              className="scroll-reveal rounded-xl border border-gray-200 bg-gray-50 p-6"
             >
               <div className="text-xs font-semibold text-blue-600">{edu.date}</div>
               <h3 className="mt-2 text-base font-bold text-gray-950">{edu.degree}</h3>
@@ -163,7 +163,7 @@ export default function AboutPage() {
       </section>
 
       {/* Languages */}
-      <section aria-labelledby="languages-heading" className="mt-16 border-t border-gray-200 pt-12">
+      <section aria-labelledby="languages-heading" className="scroll-reveal mt-16 border-t border-gray-200 pt-12">
         <h2 id="languages-heading" className="text-2xl font-bold tracking-tight text-gray-950">
           Languages
         </h2>
@@ -171,7 +171,7 @@ export default function AboutPage() {
           {languages.map((lang) => (
             <div
               key={lang.name}
-              className="rounded-lg border border-gray-200 bg-white p-4 text-center shadow-2xs"
+              className="scroll-reveal rounded-lg border border-gray-200 bg-white p-4 text-center shadow-2xs"
             >
               <div className="text-base font-bold text-gray-950">{lang.name}</div>
               <div className="mt-1 text-xs text-gray-500">{lang.level}</div>
@@ -181,7 +181,7 @@ export default function AboutPage() {
       </section>
 
       {/* Skills Matrix */}
-      <section aria-labelledby="skills-heading" className="mt-16 border-t border-gray-200 pt-12">
+      <section aria-labelledby="skills-heading" className="scroll-reveal mt-16 border-t border-gray-200 pt-12">
         <h2 id="skills-heading" className="text-2xl font-bold tracking-tight text-gray-950">
           Technical &amp; Strategic Proficiencies
         </h2>
@@ -190,8 +190,11 @@ export default function AboutPage() {
         </p>
 
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {skills.map((skillGroup) => (
-            <div key={skillGroup.category} className="rounded-xl border border-gray-200 bg-gray-50 p-6">
+          {skills.map((skillGroup, idx) => (
+            <div
+              key={skillGroup.category}
+              className={`scroll-reveal ${idx === 1 ? "scroll-reveal-delay-1" : idx === 2 ? "scroll-reveal-delay-2" : ""} rounded-xl border border-gray-200 bg-gray-50 p-6`}
+            >
               <h3 className="text-sm font-bold uppercase tracking-wider text-gray-950">
                 {skillGroup.category}
               </h3>
@@ -209,27 +212,27 @@ export default function AboutPage() {
       </section>
 
       {/* Work Principles */}
-      <section aria-labelledby="principles-heading" className="mt-16 border-t border-gray-200 pt-12">
+      <section aria-labelledby="principles-heading" className="scroll-reveal mt-16 border-t border-gray-200 pt-12">
         <h2 id="principles-heading" className="text-2xl font-bold tracking-tight text-gray-950">
           Guiding Principles
         </h2>
 
         <div className="mt-6 space-y-6">
-          <div className="rounded-lg border-l-4 border-blue-600 bg-white p-5 shadow-xs">
+          <div className="scroll-reveal rounded-lg border-l-4 border-blue-600 bg-white p-5 shadow-xs">
             <h3 className="font-bold text-gray-950">1. Server-Rendered by Default</h3>
             <p className="mt-1 text-sm text-gray-600">
               Websites should deliver real HTML on first paint. Core content must be immediately readable by users on low-bandwidth networks and effortlessly crawlable by search engines.
             </p>
           </div>
 
-          <div className="rounded-lg border-l-4 border-blue-600 bg-white p-5 shadow-xs">
+          <div className="scroll-reveal rounded-lg border-l-4 border-blue-600 bg-white p-5 shadow-xs">
             <h3 className="font-bold text-gray-950">2. Real Deliverables Over Vanities</h3>
             <p className="mt-1 text-sm text-gray-600">
               Technology choices serve business objectives. Every feature, component, and line of code must trace back to clear user value, operational stability, or verified business growth.
             </p>
           </div>
 
-          <div className="rounded-lg border-l-4 border-blue-600 bg-white p-5 shadow-xs">
+          <div className="scroll-reveal rounded-lg border-l-4 border-blue-600 bg-white p-5 shadow-xs">
             <h3 className="font-bold text-gray-950">3. Non-Negotiable Accessibility</h3>
             <p className="mt-1 text-sm text-gray-600">
               Digital products must meet WCAG 2.2 AA standards as a baseline. Keyboard accessibility, clear semantic landmarks, and motion preference checks ensure universal usability.
@@ -239,7 +242,7 @@ export default function AboutPage() {
       </section>
 
       {/* Call to action */}
-      <section aria-label="Contact CTA" className="mt-16 rounded-2xl bg-gray-50 border border-gray-200 p-8 text-center sm:p-10">
+      <section aria-label="Contact CTA" className="scroll-reveal mt-16 rounded-2xl bg-gray-50 border border-gray-200 p-8 text-center sm:p-10">
         <h2 className="text-xl font-bold text-gray-950 sm:text-2xl">
           Interested in discussing a project or role?
         </h2>

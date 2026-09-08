@@ -34,7 +34,7 @@ export default async function WorkPage() {
         {caseStudies.map((study) => (
           <article
             key={study.slug}
-            className="rounded-2xl border border-gray-200 bg-white p-6 shadow-xs transition hover:border-blue-300 hover:shadow-md sm:p-8"
+            className="scroll-reveal rounded-2xl border border-gray-200 bg-white p-6 shadow-xs transition hover:border-blue-300 hover:shadow-md sm:p-8"
           >
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-semibold text-gray-500">
               <span className="rounded-md bg-blue-50 px-2.5 py-1 text-blue-700">{study.client}</span>
