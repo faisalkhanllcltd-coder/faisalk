@@ -1,0 +1,62 @@
+---
+title: "Quranific.com — Full-Stack Web Platform & Course Architecture"
+slug: "quranific"
+client: "Quranific.com (Owned & Operated)"
+role: "Owner, Full-Stack Developer & Marketer"
+timeline: "2022 – Present"
+date: "2026-03-01"
+summary: "Architected and built a live production online Quran academy web platform to compete feature-for-feature with established LMS systems, featuring a redesigned 9-course catalog, tiered billing, and funnel-aware pricing."
+metrics:
+  - label: "Live Courses"
+    value: "9"
+  - label: "Billing Cadences"
+    value: "3 Options"
+  - label: "Free Trial"
+    value: "3 Days"
+  - label: "Satisfaction Guarantee"
+    value: "Full Month"
+tags:
+  - "Astro 6"
+  - "Svelte 5"
+  - "Tailwind CSS v4"
+  - "Cloudflare Pages"
+  - "Resend"
+featured: true
+---
+
+## Platform Overview
+
+Quranific.com is a live, production online Quran academy platform owned, engineered, and marketed by Faisal Khan. The academy provides structured Quranic learning across multiple proficiency levels, combining high-speed edge delivery with transparent billing and modern UX.
+
+The primary objective was to engineer an intuitive, high-converting learning platform that competes directly and feature-for-feature with established commercial LMS ecosystems like Tutor LMS Pro and LifterLMS, without the baggage and latency of legacy monolithic plugins.
+
+## Technical Architecture
+
+The frontend architecture and deployment pipeline were chosen for instant page loads, zero client-side hydration bloat on static content, and global edge caching:
+
+- **Astro 6 & Svelte 5 (Runes)**: Leveraged Astro's server-first content rendering combined with fine-grained reactivity in Svelte 5 for interactive filtering and pricing widgets.
+- **Tailwind CSS v4**: Streamlined atomic styling engine ensuring minimal CSS payload and responsive layouts across all device form factors.
+- **Cloudflare Pages & Workers**: Global edge deployment providing near-zero Time to First Byte (TTFB) and secure serverless API handling for contact routing.
+- **Resend**: Transactional email infrastructure delivering automated inquiry confirmations and student intake routing.
+
+## Course Catalog & Funnel Redesign
+
+The centerpiece of the platform release was a complete re-architecture of the academic catalog and conversion funnel:
+
+- **9 Live Courses**: Structured academic offerings categorized by proficiency, from foundational phonetics to advanced Tajweed and memorization.
+- **Category-Based Dynamic Filtering**: Interactive client-side filtering enabling prospective students to instantly isolate courses by target age group, track, and intensity.
+- **Funnel-Aware Tiered Pricing**: Replaced an outdated single hero calculator with a comprehensive tiered comparison architecture, clearly delineating course deliverables, instructor ratios, and scheduling flexibility.
+
+## Operational Model & Student Policies
+
+To lower friction for prospective families and build trust upfront, the commercial engine implements transparent enrollment terms:
+
+- **Flexible Invoicing Cadences**: Manual invoice billing across three distinct cadences: monthly, 6-month, and 12-month billing periods, with strictly zero lock-in beyond the current paid interval.
+- **3-Day Free Trial**: Complete access for new student evaluations before any payment commitment.
+- **Full-Month Satisfaction Guarantee**: Unconditional 30-day money-back assurance for enrolled students.
+
+## Current Production Status
+
+Quranific.com is live in active production and currently preparing for a targeted Google Ads acquisition rollout.
+
+[NEEDS: Post-launch conversion rate and acquisition metrics from Google Ads campaign]

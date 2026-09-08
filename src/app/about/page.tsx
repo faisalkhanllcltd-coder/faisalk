@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 export const metadata = constructMetadata({
   title: "About",
   description:
-    "Faisal Khan is a senior web developer and digital marketing engineer specializing in high-performance Next.js web applications, technical SEO, and conversion rate optimization.",
+    "Faisal Khan is a web developer and digital marketer based in Karachi, Pakistan, specializing in high-performance web applications, learning platforms, and conversion architecture.",
   path: "/about",
 });
 
@@ -14,41 +14,169 @@ export default function AboutPage() {
 
   const skills = [
     {
-      category: "Frontend Architecture",
-      items: ["Next.js (App Router)", "React 19", "TypeScript (Strict)", "Tailwind CSS v4", "HTML5 & Semantic DOM"],
+      category: "Frontend & Web Engineering",
+      items: [
+        "Next.js (App Router) & React 19",
+        "Astro 6 & Svelte 5 (Runes)",
+        "TypeScript (Strict) & HTML5",
+        "Tailwind CSS v4 & shadcn/ui",
+        "TanStack Start, Router & Query",
+      ],
     },
     {
-      category: "Performance & Quality",
-      items: ["Core Web Vitals (LCP, INP, CLS)", "Lighthouse 100/100 Audits", "WCAG 2.2 AA Accessibility", "Bundle Size Budgets", "Cross-Browser Testing"],
+      category: "Backend & Real-Time Systems",
+      items: [
+        "Supabase (Postgres, RLS, Auth)",
+        "LiveKit Cloud (WebRTC Video/Audio)",
+        "Cloudflare Pages & Workers",
+        "Resend Transactional Email",
+        "Zod Schema Validation",
+      ],
     },
     {
-      category: "Growth & Conversion",
-      items: ["Technical & Programmatic SEO", "Schema.org Structured Data", "Conversion Rate Optimization (CRO)", "Google Tag Manager & GA4", "Lead Funnel Engineering"],
+      category: "Growth & Digital Marketing",
+      items: [
+        "Funnel Architecture & CRO",
+        "Tiered Pricing & Catalog Redesign",
+        "Technical SEO & Schema.org",
+        "Conversion Flow Engineering",
+        "Performance & Core Web Vitals",
+      ],
     },
+  ];
+
+  const education = [
+    {
+      institution: "Jamia Darul Uloom Karachi",
+      degree: "M.A. Arabic & Islamic Studies",
+      date: "Completed August 10, 2020",
+    },
+    {
+      institution: "Mahad Uthman Bin Affan",
+      degree: "1-Year Diploma, CIT/DIT & Web Development + English + Arabic Language",
+      date: "Started October 20, 2020",
+    },
+  ];
+
+  const employment = [
+    {
+      role: "Self-Employed Web Developer & Marketer",
+      organization: "Online Quran Academy (Quranific.com & Quran Gateway LMS)",
+      period: "2022 — Present",
+      description:
+        "Architecting full-stack web platforms, course catalogs, live virtual classrooms, tiered billing systems, and conversion-focused acquisition funnels.",
+    },
+    {
+      role: "Book Proofreader & Support Staff",
+      organization: "Maktaba Al-Bushra",
+      period: "Dec 20, 2021 — Jan 23, 2024",
+      description:
+        "Editorial review, academic text proofreading, and operational publishing support.",
+    },
+    {
+      role: "Web Developer & Marketing",
+      organization: "Haramen Travel Agency",
+      period: "Nov 12, 2020 — Oct 25, 2021",
+      description:
+        "Website development, online portal maintenance, and travel marketing campaign coordination.",
+    },
+  ];
+
+  const languages = [
+    { name: "English", level: "Professional working proficiency" },
+    { name: "Arabic", level: "Advanced / Academic proficiency" },
+    { name: "Urdu", level: "Native / Bilingual" },
+    { name: "Pashto", level: "Native / Bilingual" },
   ];
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-12 md:py-20">
       <JsonLd data={jsonLd} />
 
+      {/* Header Bio */}
       <section aria-labelledby="about-heading" className="space-y-6">
         <div className="text-xs font-semibold uppercase tracking-wider text-blue-600">
-          Professional Background
+          Professional Profile
         </div>
         <h1
           id="about-heading"
           className="text-3xl font-extrabold tracking-tight text-gray-950 sm:text-4xl md:text-5xl"
         >
-          Engineering technical excellence that fuels business growth.
+          Web engineering and digital marketing grounded in real deliverables.
         </h1>
 
         <div className="prose prose-gray max-w-none text-base leading-relaxed text-gray-700 space-y-4">
           <p>
-            I am a web developer and digital marketing engineer who believes that website speed, accessibility, and conversion architecture are inseparable. A website that renders in 800 milliseconds and ranks #1 on Google is meaningless if the checkout funnel is confusing. Conversely, the most persuasive marketing copy in the world will fail if mobile users bounce after three seconds of loading latency.
+            I am Faisal Khan, a web developer and digital marketer based in Karachi, Pakistan. Since 2020, I have operated at the intersection of modern frontend engineering and conversion marketing — building production web applications, educational platforms, and digital funnels that deliver tangible business value.
           </p>
           <p>
-            Over the past several years, I have helped venture-backed SaaS startups, high-growth e-commerce brands, and healthcare organizations redesign their web platforms from the ground up. My focus is always on quantifiable outcomes: conversion rate lifts, reduced acquisition costs, sub-second Core Web Vitals, and strict accessibility compliance.
+            Currently, I build and operate web applications for an online Quran academy, including the live production platform <strong>Quranific.com</strong> and the enterprise multi-audience platform <strong>Quran Gateway LMS</strong>. Alongside web development, I remain active professionally in Arabic language work and editorial book proofreading.
           </p>
+        </div>
+      </section>
+
+      {/* Employment History */}
+      <section aria-labelledby="experience-heading" className="mt-16 border-t border-gray-200 pt-12">
+        <h2 id="experience-heading" className="text-2xl font-bold tracking-tight text-gray-950">
+          Employment History
+        </h2>
+        <div className="mt-6 space-y-6">
+          {employment.map((job) => (
+            <div
+              key={job.role}
+              className="rounded-xl border border-gray-200 bg-white p-6 shadow-xs"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h3 className="text-base font-bold text-gray-950">{job.role}</h3>
+                  <div className="text-sm font-medium text-blue-600">{job.organization}</div>
+                </div>
+                <div className="mt-1 text-xs font-semibold text-gray-500 sm:mt-0">
+                  {job.period}
+                </div>
+              </div>
+              <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+                {job.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Education */}
+      <section aria-labelledby="education-heading" className="mt-16 border-t border-gray-200 pt-12">
+        <h2 id="education-heading" className="text-2xl font-bold tracking-tight text-gray-950">
+          Education &amp; Credentials
+        </h2>
+        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {education.map((edu) => (
+            <div
+              key={edu.degree}
+              className="rounded-xl border border-gray-200 bg-gray-50 p-6"
+            >
+              <div className="text-xs font-semibold text-blue-600">{edu.date}</div>
+              <h3 className="mt-2 text-base font-bold text-gray-950">{edu.degree}</h3>
+              <p className="mt-1 text-sm text-gray-600">{edu.institution}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Languages */}
+      <section aria-labelledby="languages-heading" className="mt-16 border-t border-gray-200 pt-12">
+        <h2 id="languages-heading" className="text-2xl font-bold tracking-tight text-gray-950">
+          Languages
+        </h2>
+        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {languages.map((lang) => (
+            <div
+              key={lang.name}
+              className="rounded-lg border border-gray-200 bg-white p-4 text-center shadow-2xs"
+            >
+              <div className="text-base font-bold text-gray-950">{lang.name}</div>
+              <div className="mt-1 text-xs text-gray-500">{lang.level}</div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -58,7 +186,7 @@ export default function AboutPage() {
           Technical &amp; Strategic Proficiencies
         </h2>
         <p className="mt-2 text-sm text-gray-600">
-          A balanced skill set delivering end-to-end web experiences from foundational code to audience acquisition.
+          Practical competencies applied daily in production environments.
         </p>
 
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -90,21 +218,21 @@ export default function AboutPage() {
           <div className="rounded-lg border-l-4 border-blue-600 bg-white p-5 shadow-xs">
             <h3 className="font-bold text-gray-950">1. Server-Rendered by Default</h3>
             <p className="mt-1 text-sm text-gray-600">
-              Websites should deliver real HTML on first paint. Search engines should never struggle to index core content, and users on low-bandwidth networks should never wait on megabytes of JavaScript before reading.
+              Websites should deliver real HTML on first paint. Core content must be immediately readable by users on low-bandwidth networks and effortlessly crawlable by search engines.
             </p>
           </div>
 
           <div className="rounded-lg border-l-4 border-blue-600 bg-white p-5 shadow-xs">
-            <h3 className="font-bold text-gray-950">2. Performance is a Feature</h3>
+            <h3 className="font-bold text-gray-950">2. Real Deliverables Over Vanities</h3>
             <p className="mt-1 text-sm text-gray-600">
-              Every 100ms of latency cost is directly tied to a reduction in conversions. Budgets for initial JavaScript payloads, image optimization, and server response times are treated as strict constraints, not suggestions.
+              Technology choices serve business objectives. Every feature, component, and line of code must trace back to clear user value, operational stability, or verified business growth.
             </p>
           </div>
 
           <div className="rounded-lg border-l-4 border-blue-600 bg-white p-5 shadow-xs">
             <h3 className="font-bold text-gray-950">3. Non-Negotiable Accessibility</h3>
             <p className="mt-1 text-sm text-gray-600">
-              All digital products must meet WCAG 2.2 AA standards as a baseline. Keyboard accessibility, proper color contrast, ARIA landmarks, and reduced-motion fallbacks ensure every prospective customer can navigate without hindrance.
+              Digital products must meet WCAG 2.2 AA standards as a baseline. Keyboard accessibility, clear semantic landmarks, and motion preference checks ensure universal usability.
             </p>
           </div>
         </div>
@@ -113,10 +241,10 @@ export default function AboutPage() {
       {/* Call to action */}
       <section aria-label="Contact CTA" className="mt-16 rounded-2xl bg-gray-50 border border-gray-200 p-8 text-center sm:p-10">
         <h2 className="text-xl font-bold text-gray-950 sm:text-2xl">
-          Interested in working together?
+          Interested in discussing a project or role?
         </h2>
         <p className="mx-auto mt-2 max-w-lg text-sm text-gray-600">
-          I am always happy to discuss challenging frontend engineering roles, e-commerce re-architectures, or technical marketing advisory.
+          Whether you need full-stack web engineering, custom LMS architecture, or conversion-focused marketing strategy, let&apos;s talk.
         </p>
         <div className="mt-6 flex justify-center gap-4">
           <Link

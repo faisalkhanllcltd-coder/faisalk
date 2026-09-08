@@ -24,7 +24,7 @@ export default async function HomePage() {
           </h1>
 
           <p className="text-lg text-gray-600 leading-relaxed sm:text-xl">
-            I am a web developer and digital marketer bridging technical architecture with conversion science. I engineer sub-second web applications, dominate organic search, and eliminate funnel friction.
+            I am a web developer and digital marketer based in Karachi, Pakistan. I engineer modern web applications, scalable learning platforms, and conversion-focused architectures.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
@@ -51,20 +51,20 @@ export default async function HomePage() {
       {/* Metrics Proof Bar */}
       <section aria-label="Key Outcomes" className="mt-16 grid grid-cols-2 gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:grid-cols-4 sm:p-8">
         <div>
-          <div className="text-3xl font-extrabold text-gray-950 sm:text-4xl">+148%</div>
-          <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">Mobile Checkout Lift</div>
+          <div className="text-3xl font-extrabold text-gray-950 sm:text-4xl">9</div>
+          <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">Live Courses Shipped</div>
         </div>
         <div>
-          <div className="text-3xl font-extrabold text-gray-950 sm:text-4xl">0.9s</div>
-          <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">Avg LCP Benchmark</div>
+          <div className="text-3xl font-extrabold text-gray-950 sm:text-4xl">14</div>
+          <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">Staff Permission Modules</div>
         </div>
         <div>
-          <div className="text-3xl font-extrabold text-gray-950 sm:text-4xl">+215%</div>
-          <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">Organic Traffic Growth</div>
+          <div className="text-3xl font-extrabold text-gray-950 sm:text-4xl">~90%</div>
+          <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">LMS Platform Built</div>
         </div>
         <div>
-          <div className="text-3xl font-extrabold text-gray-950 sm:text-4xl">100%</div>
-          <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">WCAG 2.2 AA Audits</div>
+          <div className="text-3xl font-extrabold text-gray-950 sm:text-4xl">4</div>
+          <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">Languages (EN/AR/UR/PA)</div>
         </div>
       </section>
 
@@ -76,7 +76,7 @@ export default async function HomePage() {
               Featured Case Studies
             </h2>
             <p className="mt-2 text-sm text-gray-600 max-w-xl">
-              Real client engagements measuring architecture decisions against business KPIs.
+              Real production systems and web applications engineered with modern full-stack standards and verified deliverables.
             </p>
           </div>
           <Link
