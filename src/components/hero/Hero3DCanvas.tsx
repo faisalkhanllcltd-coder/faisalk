@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Component, ReactNode, useSyncExternalStore } from "react";
+import React, { Component, ReactNode, useSyncExternalStore, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { GrowthMeshScene } from "./GrowthMeshScene";
 import { HeroPosterFallback } from "./HeroPosterFallback";
@@ -89,6 +89,26 @@ function getWebGLServerSnapshot(): boolean {
   return false;
 }
 
+// Hook to detect first user interaction
+function useInteraction(): boolean {
+  const [interacted, setInteracted] = useState(false);
+
+  useEffect(() => {
+    if (interacted) return;
+
+    const onInteract = () => setInteracted(true);
+    const events = ["mousemove", "scroll", "touchstart", "keydown"];
+
+    events.forEach((evt) => window.addEventListener(evt, onInteract, { once: true, passive: true }));
+
+    return () => {
+      events.forEach((evt) => window.removeEventListener(evt, onInteract));
+    };
+  }, [interacted]);
+
+  return interacted;
+}
+
 export default function Hero3DCanvas() {
   const isMounted = useSyncExternalStore(emptySubscribe, getClientSnapshot, getServerSnapshot);
   const hasWebGL = useSyncExternalStore(emptySubscribe, getWebGLSnapshot, getWebGLServerSnapshot);
@@ -97,10 +117,11 @@ export default function Hero3DCanvas() {
     getMotionSnapshot,
     getMotionServerSnapshot
   );
+  const hasInteracted = useInteraction();
 
-  // During SSR or pre-hydration, or if WebGL is unavailable or reduced motion requested:
-  // Render the static SVG/CSS poster fallback
-  if (!isMounted || !hasWebGL || prefersReducedMotion) {
+  // During SSR or pre-hydration, or if WebGL is unavailable, reduced motion requested,
+  // or user hasn't interacted yet: Render the static SVG/CSS poster fallback
+  if (!isMounted || !hasWebGL || prefersReducedMotion || !hasInteracted) {
     return <HeroPosterFallback />;
   }
 
@@ -130,3 +151,4 @@ export default function Hero3DCanvas() {
     </WebGLErrorBoundary>
   );
 }
+
