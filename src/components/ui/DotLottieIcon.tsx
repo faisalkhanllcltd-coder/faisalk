@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useSyncExternalStore, ReactNode } from "react";
+import React, { useState, useEffect, useSyncExternalStore, ReactNode } from "react";
 import dynamic from "next/dynamic";
 import type { DotLottie } from "@lottiefiles/dotlottie-react";
 
@@ -73,11 +73,36 @@ export function DotLottieIcon({
     getMotionSnapshot,
     getMotionServerSnapshot
   );
+  const [shouldLoad, setShouldLoad] = useState(false);
   const [dotLottie, setDotLottie] = useState<DotLottie | null>(null);
 
-  // Before hydration or when user requests reduced motion: render static SVG fallback
-  if (!isMounted || prefersReducedMotion) {
-    return <span className={`inline-flex items-center justify-center ${className}`}>{fallback}</span>;
+  useEffect(() => {
+    if (shouldLoad || prefersReducedMotion) return;
+    if (typeof window === "undefined") return;
+
+    const trigger = () => setShouldLoad(true);
+
+    const events = ["mousemove", "scroll", "touchstart", "keydown", "click"];
+    events.forEach((evt) =>
+      window.addEventListener(evt, trigger, { once: true, passive: true })
+    );
+
+    return () => {
+      events.forEach((evt) => window.removeEventListener(evt, trigger));
+    };
+  }, [shouldLoad, prefersReducedMotion]);
+
+  // Before hydration, when user requests reduced motion, or before user interaction: render static fallback
+  if (!isMounted || prefersReducedMotion || !shouldLoad) {
+    return (
+      <span
+        className={`inline-flex items-center justify-center ${className}`}
+        onMouseEnter={hover ? () => setShouldLoad(true) : undefined}
+        onFocus={hover ? () => setShouldLoad(true) : undefined}
+      >
+        {fallback}
+      </span>
+    );
   }
 
   return (
