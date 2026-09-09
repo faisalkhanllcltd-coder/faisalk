@@ -160,7 +160,7 @@ export default function AboutPage() {
                   <h3 className="text-base font-bold text-gray-950">{job.role}</h3>
                   <div className="text-sm font-medium text-blue-600">{job.organization}</div>
                 </div>
-                <div className="mt-1 text-xs font-semibold text-gray-500 sm:mt-0">
+                <div className="mt-1 text-xs font-semibold text-gray-600 sm:mt-0">
                   {job.period}
                 </div>
               </div>
@@ -203,7 +203,7 @@ export default function AboutPage() {
               className="scroll-reveal rounded-lg border border-gray-200 bg-white p-4 text-center shadow-2xs"
             >
               <div className="text-base font-bold text-gray-950">{lang.name}</div>
-              <div className="mt-1 text-xs text-gray-500">{lang.level}</div>
+              <div className="mt-1 text-xs text-gray-600">{lang.level}</div>
             </div>
           ))}
         </div>

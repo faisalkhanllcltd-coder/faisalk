@@ -110,7 +110,7 @@ export default async function HomePage() {
               className="scroll-reveal flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-xs transition hover:border-blue-300 hover:shadow-md sm:p-8"
             >
               <div>
-                <div className="flex items-center justify-between text-xs font-semibold text-gray-500">
+                <div className="flex items-center justify-between text-xs font-semibold text-gray-600">
                   <span>{study.client}</span>
                   <span>{study.timeline}</span>
                 </div>
@@ -127,7 +127,7 @@ export default async function HomePage() {
                   {study.metrics.slice(0, 2).map((metric) => (
                     <div key={metric.label}>
                       <div className="text-lg font-extrabold text-blue-600">{metric.value}</div>
-                      <div className="text-[11px] font-medium text-gray-500">{metric.label}</div>
+                      <div className="text-[11px] font-medium text-gray-600">{metric.label}</div>
                     </div>
                   ))}
                 </div>

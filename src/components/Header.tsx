@@ -28,7 +28,7 @@ export function Header() {
               <li>
                 <Link
                   href="/about"
-                  className="transition hover:text-gray-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm"
+                  className="inline-block py-2 transition hover:text-gray-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm"
                 >
                   About
                 </Link>
@@ -36,7 +36,7 @@ export function Header() {
               <li>
                 <Link
                   href="/work"
-                  className="transition hover:text-gray-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm"
+                  className="inline-block py-2 transition hover:text-gray-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm"
                 >
                   Work
                 </Link>
@@ -44,7 +44,7 @@ export function Header() {
               <li>
                 <Link
                   href="/contact"
-                  className="rounded-full bg-gray-950 px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  className="inline-flex items-center justify-center rounded-full bg-gray-950 px-4 py-2 text-xs font-semibold text-white transition hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                 >
                   Get in touch
                 </Link>

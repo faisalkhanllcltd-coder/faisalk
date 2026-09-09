@@ -79,7 +79,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-gray-200 pt-6 text-xs text-gray-500 flex flex-col sm:flex-row items-center justify-between">
+        <div className="mt-10 border-t border-gray-200 pt-6 text-xs text-gray-600 flex flex-col sm:flex-row items-center justify-between">
           <p>&copy; {currentYear} Faisal Khan. All rights reserved.</p>
           <p className="mt-2 sm:mt-0">Built with Next.js 16, React 19 &amp; Tailwind CSS v4.</p>
         </div>

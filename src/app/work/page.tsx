@@ -31,12 +31,12 @@ export default async function WorkPage() {
       </header>
 
       <div className="mt-12 space-y-12">
-        {caseStudies.map((study) => (
+        {caseStudies.map((study, idx) => (
           <article
             key={study.slug}
-            className="scroll-reveal rounded-2xl border border-gray-200 bg-white p-6 shadow-xs transition hover:border-blue-300 hover:shadow-md sm:p-8"
+            className={`${idx > 0 ? "scroll-reveal" : ""} rounded-2xl border border-gray-200 bg-white p-6 shadow-xs transition hover:border-blue-300 hover:shadow-md sm:p-8`}
           >
-            <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-semibold text-gray-500">
+            <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-semibold text-gray-600">
               <span className="rounded-md bg-blue-50 px-2.5 py-1 text-blue-700">{study.client}</span>
               <span>{study.role} &bull; {study.timeline}</span>
             </div>
@@ -56,7 +56,7 @@ export default async function WorkPage() {
               {study.metrics.map((metric) => (
                 <div key={metric.label}>
                   <div className="text-xl font-extrabold text-blue-600 sm:text-2xl">{metric.value}</div>
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-500">{metric.label}</div>
+                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">{metric.label}</div>
                 </div>
               ))}
             </div>

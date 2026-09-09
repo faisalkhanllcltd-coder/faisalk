@@ -57,7 +57,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       <div className="mb-8">
         <Link
           href="/work"
-          className="inline-flex items-center text-sm font-medium text-gray-500 transition hover:text-blue-600"
+          className="inline-flex items-center text-sm font-medium text-gray-600 transition hover:text-blue-600"
         >
           &larr; Back to all case studies
         </Link>
@@ -65,7 +65,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
       {/* Header Info */}
       <header className="border-b border-gray-200 pb-10">
-        <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-gray-500">
+        <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-gray-600">
           <span className="rounded-md bg-blue-50 px-2.5 py-1 text-blue-700">{metadata.client}</span>
           <span>&bull;</span>
           <span>{metadata.role}</span>
@@ -86,7 +86,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           {metadata.metrics.map((metric) => (
             <div key={metric.label} className="text-center sm:text-left">
               <div className="text-2xl font-extrabold text-blue-600 sm:text-3xl">{metric.value}</div>
-              <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-500">{metric.label}</div>
+              <div className="mt-1 text-xs font-medium uppercase tracking-wider text-gray-600">{metric.label}</div>
             </div>
           ))}
         </div>
