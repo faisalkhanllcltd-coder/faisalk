@@ -28,6 +28,18 @@ export function Hero3D() {
       return;
     }
 
+    // If WebGL is unsupported, skip downloading the 3D bundle and retain static poster fallback
+    try {
+      const testCanvas = document.createElement("canvas");
+      const hasWebGL = Boolean(
+        window.WebGLRenderingContext &&
+          (testCanvas.getContext("webgl") || testCanvas.getContext("experimental-webgl"))
+      );
+      if (!hasWebGL) return;
+    } catch {
+      return;
+    }
+
     const element = containerRef.current;
     if (!element) return;
 
