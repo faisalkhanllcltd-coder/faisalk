@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { constructMetadata, getAboutPageSchema } from "@/lib/metadata";
 import { JsonLd } from "@/components/JsonLd";
+import { TrackedAnchor } from "@/components/analytics/TrackedLink";
 
 export const metadata = constructMetadata({
   title: "About",
@@ -112,6 +113,34 @@ export default function AboutPage() {
           <p>
             Currently, I build and operate web applications for an online Quran academy, including the live production platform <strong>Quranific.com</strong> and the enterprise multi-audience platform <strong>Quran Gateway LMS</strong>. Alongside web development, I remain active professionally in Arabic language work and editorial book proofreading.
           </p>
+        </div>
+
+        <div>
+          <TrackedAnchor
+            href="/resume.pdf"
+            download="Faisal-Khan-Resume.pdf"
+            event={{
+              name: "resume_download",
+              properties: { url: "/resume.pdf", source: "about_page" },
+            }}
+            className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-xs font-semibold text-gray-800 shadow-2xs transition hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          >
+            <svg
+              className="h-4 w-4 text-gray-500"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+              />
+            </svg>
+            <span>Download Resume (PDF)</span>
+          </TrackedAnchor>
         </div>
       </section>
 

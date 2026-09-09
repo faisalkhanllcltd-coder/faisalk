@@ -1,5 +1,6 @@
 import { constructMetadata, getContactPageSchema, SITE_CONFIG } from "@/lib/metadata";
 import { JsonLd } from "@/components/JsonLd";
+import { ContactForm } from "@/components/contact/ContactForm";
 
 export const metadata = constructMetadata({
   title: "Contact",
@@ -84,75 +85,9 @@ export default function ContactPage() {
             Fill out the details below and I will respond within 24 business hours.
           </p>
 
-          <form className="mt-6 space-y-5" action="#" method="POST">
-            <div>
-              <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-gray-700">
-                Your Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                autoComplete="name"
-                placeholder="Jane Doe"
-                className="mt-1.5 block w-full rounded-lg border border-gray-300 px-3.5 py-2 text-sm text-gray-950 placeholder-gray-400 shadow-2xs focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-gray-700">
-                Work Email <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                autoComplete="email"
-                placeholder="jane@company.com"
-                className="mt-1.5 block w-full rounded-lg border border-gray-300 px-3.5 py-2 text-sm text-gray-950 placeholder-gray-400 shadow-2xs focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="projectType" className="block text-xs font-semibold uppercase tracking-wider text-gray-700">
-                Inquiry Type
-              </label>
-              <select
-                id="projectType"
-                name="projectType"
-                className="mt-1.5 block w-full rounded-lg border border-gray-300 bg-white px-3.5 py-2 text-sm text-gray-950 shadow-2xs focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="full-stack">Full-Stack Web Development</option>
-                <option value="seo-cro">Technical SEO &amp; CRO Audit</option>
-                <option value="headless">Headless Commerce Architecture</option>
-                <option value="full-time">Full-Time Engineering Role</option>
-                <option value="advisory">Consulting &amp; Advisory</option>
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-gray-700">
-                Project Details or Objective <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                required
-                placeholder="Tell me about your timeline, business goals, and technical requirements..."
-                className="mt-1.5 block w-full rounded-lg border border-gray-300 px-3.5 py-2 text-sm text-gray-950 placeholder-gray-400 shadow-2xs focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full rounded-lg bg-gray-950 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-            >
-              Send Inquiry
-            </button>
-          </form>
+          <div className="mt-6">
+            <ContactForm />
+          </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ import { getAllCaseStudySlugs, getCaseStudyBySlug } from "@/lib/case-studies";
 import { constructMetadata, getCaseStudySchema } from "@/lib/metadata";
 import { JsonLd } from "@/components/JsonLd";
 import { mdxComponents } from "@/components/MdxComponents";
+import { CaseStudyReadingTracker } from "@/components/analytics/CaseStudyReadingTracker";
 
 interface PageProps {
   params: Promise<{
@@ -50,6 +51,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
   return (
     <article className="mx-auto max-w-4xl px-6 py-12 md:py-20">
       <JsonLd data={jsonLd} />
+      <CaseStudyReadingTracker slug={slug} />
 
       {/* Back Link */}
       <div className="mb-8">
