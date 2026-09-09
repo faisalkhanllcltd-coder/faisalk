@@ -164,3 +164,28 @@ Don't hardcode a specific Node major version in this file — it goes stale.
 Use whatever is the current Active LTS at the time you're working (check
 via `node --version` against nodejs.org's release schedule if unsure), and
 note in implementation_plan.md which version you're building against.
+
+## Infrastructure — hard constraints, never touch without explicit instruction
+DNS/email for this domain are already configured and working:
+- Hostinger (registrar) -> Cloudflare (DNS + edge proxy) -> Vercel (origin).
+- Root A (76.76.21.21) and www CNAME (cname.vercel-dns.com) are proxied
+  (orange cloud) through Cloudflare — never set to DNS-only, the proxy
+  protects Vercel compute limits against heavy Three.js asset requests.
+- Cloudflare SSL/TLS mode is locked to Full (Strict) — never suggest or
+  set to Flexible; Vercel enforces HTTPS at origin, a downgrade causes an
+  immediate ERR_TOO_MANY_REDIRECTS loop.
+- Email is a deliberately split pipeline:
+  - INBOUND: root MX -> Cloudflare Email Routing -> forwards
+    contact@faisalk.dev to Gmail. Root SPF authorizes Cloudflare
+    (v=spf1 include:_spf.mx.cloudflare.net ~all). Never modify root MX
+    or root SPF.
+  - OUTBOUND: Resend. The visible/client-facing "from" address in code
+    MUST be on the root domain (contact@faisalk.dev) — DKIM alignment on
+    the root domain (resend._domainkey) authorizes this for DMARC.
+    send.faisalk.dev is only the Return-Path (bounce handling), invisible
+    to recipients — never used as the visible From address.
+  - DNS isolation: Resend's MX and SPF for the Return-Path live on
+    send.faisalk.dev. DKIM (resend._domainkey) and DMARC (_dmarc) live on
+    the root domain. Never merge Resend's SPF into root SPF.
+- Any task that seems to require touching DNS, MX, SPF, or SSL/TLS mode:
+  stop and ask first. Do not infer a fix and apply it.

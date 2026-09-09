@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   url: "https://faisalk.dev",
   ogImage: "https://faisalk.dev/og-default.png",
   twitterHandle: "@faisalkhandev",
-  email: "faisal@faisalk.dev",
+  email: "contact@faisalk.dev",
   github: "https://github.com/faisalkhanllcltd-coder",
   linkedin: "https://linkedin.com/in/faisalkhan",
 };

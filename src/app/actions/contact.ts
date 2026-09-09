@@ -98,7 +98,7 @@ export async function submitContactAction(
     try {
       const resend = new Resend(resendApiKey);
       const { error } = await resend.emails.send({
-        from: "Portfolio Inquiries <onboarding@resend.dev>",
+        from: "Faisal Khan <contact@faisalk.dev>",
         to: SITE_CONFIG.email,
         replyTo: email,
         subject: `[Lead Inquiry] ${projectLabel} from ${name}`,
