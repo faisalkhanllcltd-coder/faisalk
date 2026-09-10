@@ -80,7 +80,7 @@ export async function submitContactAction(
     ? (forwarded.split(",")[0]?.trim() || "127.0.0.1")
     : realIp || "127.0.0.1";
 
-  const rateLimit = checkRateLimit(clientIp, 3, 10 * 60 * 1000);
+  const rateLimit = await checkRateLimit(clientIp, 3, 10 * 60 * 1000);
   if (!rateLimit.success) {
     const minutesLeft = Math.ceil(rateLimit.resetMs / 60000);
     return {
