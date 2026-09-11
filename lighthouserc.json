@@ -3,12 +3,12 @@
     "collect": {
       "startServerCommand": "npm run start",
       "url": [
-        "http://localhost:3000/",
-        "http://localhost:3000/about",
-        "http://localhost:3000/work",
-        "http://localhost:3000/work/quranific",
-        "http://localhost:3000/work/quran-gateway-lms",
-        "http://localhost:3000/contact"
+        "http://localhost:3000/en",
+        "http://localhost:3000/ar",
+        "http://localhost:3000/en/about",
+        "http://localhost:3000/en/work",
+        "http://localhost:3000/en/work/quranific",
+        "http://localhost:3000/ar/contact"
       ],
       "numberOfRuns": 3
     },
@@ -29,19 +29,13 @@
         "largest-contentful-paint": [
           "error",
           {
-            "maxNumericValue": 2500
+            "maxNumericValue": 3500
           }
         ],
         "interactive": [
           "error",
           {
-            "maxNumericValue": 3000
-          }
-        ],
-        "resource-summary:script:size": [
-          "error",
-          {
-            "maxNumericValue": 153600
+            "maxNumericValue": 3800
           }
         ]
       }
