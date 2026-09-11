@@ -15,6 +15,12 @@ export const SITE_CONFIG = {
 };
 
 /**
+ * Dedicated recipient email address for internal lead form dispatch via Resend.
+ * Kept strictly isolated from SITE_CONFIG.email (the public-facing address).
+ */
+export const CONTACT_FORM_RECIPIENT = "faisalkhan.llc.ltd@gmail.com";
+
+/**
  * Helper to construct page-specific metadata with OpenGraph and Twitter cards.
  */
 export function constructMetadata({

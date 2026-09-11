@@ -3,7 +3,7 @@
 import { headers } from "next/headers";
 import { z } from "zod";
 import { Resend } from "resend";
-import { SITE_CONFIG } from "@/lib/metadata";
+import { SITE_CONFIG, CONTACT_FORM_RECIPIENT } from "@/lib/metadata";
 import { checkRateLimit } from "@/lib/rate-limit";
 import {
   projectTypes,
@@ -99,7 +99,7 @@ export async function submitContactAction(
       const resend = new Resend(resendApiKey);
       const { error } = await resend.emails.send({
         from: "Faisal Khan <contact@faisalk.dev>",
-        to: SITE_CONFIG.email,
+        to: CONTACT_FORM_RECIPIENT,
         replyTo: email,
         subject: `[Lead Inquiry] ${projectLabel} from ${name}`,
         text: `New qualified inquiry submitted via faisalk.dev:\n\nName: ${name}\nEmail: ${email}\nInquiry Type: ${projectLabel}\n\nDetails:\n${message}\n\nClient IP: ${clientIp}`,
