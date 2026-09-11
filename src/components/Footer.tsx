@@ -1,13 +1,11 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { SITE_CONFIG } from "@/lib/metadata";
 
-export function Footer() {
+export async function Footer() {
   const currentYear = new Date().getFullYear();
-  const tNav = useTranslations("Navigation");
-  const tFooter = useTranslations("Footer");
+  const tNav = await getTranslations("Navigation");
+  const tFooter = await getTranslations("Footer");
 
   return (
     <footer className="border-t border-gray-200 bg-gray-50 text-gray-600 transition-colors duration-200 dark:border-gray-800 dark:bg-gray-950 dark:text-gray-300">

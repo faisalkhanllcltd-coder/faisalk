@@ -111,6 +111,13 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const messages = await getMessages();
+  // Filter messages to only namespaces consumed by client components
+  // to prevent serializing unnecessary dictionaries into the initial HTML payload.
+  const clientMessages = {
+    Theme: messages.Theme,
+    Language: messages.Language,
+    Contact: messages.Contact,
+  };
   const cookieStore = await cookies();
   const themeCookie = cookieStore.get("theme")?.value;
 
@@ -145,7 +152,7 @@ export default async function LocaleLayout({
           isRtl ? "font-sans font-arabic" : "font-sans"
         }`}
       >
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={clientMessages}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

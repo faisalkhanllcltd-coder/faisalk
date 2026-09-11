@@ -1,12 +1,10 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { LanguageSwitcher } from "@/components/i18n/LanguageSwitcher";
 
-export function Header() {
-  const t = useTranslations("Navigation");
+export async function Header() {
+  const t = await getTranslations("Navigation");
 
   return (
     <>
