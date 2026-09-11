@@ -77,7 +77,7 @@ export function HeroPosterFallback() {
       </svg>
 
       {/* Status indicator */}
-      <div className="pointer-events-none absolute bottom-3 right-3 rounded-full bg-slate-900/80 px-2.5 py-1 text-[10px] font-medium text-slate-400 backdrop-blur-xs border border-slate-700/50">
+      <div className="pointer-events-none absolute bottom-3 end-3 rounded-full bg-slate-900/80 px-2.5 py-1 text-[10px] font-medium text-slate-400 backdrop-blur-xs border border-slate-700/50">
         Growth Systems Architecture
       </div>
     </div>

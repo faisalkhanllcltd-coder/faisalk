@@ -28,15 +28,19 @@ export function constructMetadata({
   description,
   path = "",
   image,
+  locale = "en",
 }: {
   title?: string;
   description?: string;
   path?: string;
   image?: string;
+  locale?: string;
 } = {}): Metadata {
   const fullTitle = title ? `${title} | ${SITE_CONFIG.name}` : SITE_CONFIG.title;
   const pageDescription = description || SITE_CONFIG.description;
-  const pageUrl = `${SITE_CONFIG.url}${path}`;
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  const normalizedPath = cleanPath === "/" ? "" : cleanPath;
+  const pageUrl = `${SITE_CONFIG.url}/${locale}${normalizedPath}`;
   const pageImage = image || SITE_CONFIG.ogImage;
 
   return {
@@ -44,6 +48,11 @@ export function constructMetadata({
     description: pageDescription,
     alternates: {
       canonical: pageUrl,
+      languages: {
+        en: `${SITE_CONFIG.url}/en${normalizedPath}`,
+        ar: `${SITE_CONFIG.url}/ar${normalizedPath}`,
+        "x-default": `${SITE_CONFIG.url}/en${normalizedPath}`,
+      },
     },
     openGraph: {
       title: fullTitle,
@@ -58,7 +67,7 @@ export function constructMetadata({
           alt: fullTitle,
         },
       ],
-      locale: "en_US",
+      locale: locale === "ar" ? "ar_AR" : "en_US",
       type: "website",
     },
     twitter: {

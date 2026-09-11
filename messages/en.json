@@ -1,0 +1,128 @@
+{
+  "Navigation": {
+    "skipToContent": "Skip to main content",
+    "brandRole": "Web Developer & Marketer",
+    "about": "About",
+    "work": "Work",
+    "contact": "Contact",
+    "getInTouch": "Get in touch"
+  },
+  "Hero": {
+    "availabilityBadge": "Available for Select Contracts & Full-Time Roles",
+    "titleLine1": "Building high-performance web products that",
+    "titleHighlight": "drive qualified leads.",
+    "subtitle": "I am a web developer and digital marketer based in Karachi, Pakistan. I engineer modern web applications, scalable learning platforms, and conversion-focused architectures.",
+    "viewWork": "View Case Studies",
+    "startConversation": "Start a Conversation"
+  },
+  "ProofBar": {
+    "coursesCount": "9",
+    "coursesLabel": "Live Courses Shipped",
+    "modulesCount": "14",
+    "modulesLabel": "Staff Permission Modules",
+    "lmsCount": "~90%",
+    "lmsLabel": "LMS Platform Built",
+    "guaranteeCount": "Full Month",
+    "guaranteeLabel": "Satisfaction Guarantee"
+  },
+  "FeaturedWork": {
+    "heading": "Featured Case Studies",
+    "subheading": "Real production systems and web applications engineered with modern full-stack standards and verified deliverables.",
+    "allCaseStudies": "All case studies",
+    "readStudy": "Read study"
+  },
+  "Competencies": {
+    "heading": "Core Competencies",
+    "subheading": "Engineered to convert visitors into customers through technical excellence and strategic distribution.",
+    "item1Title": "1. Full-Stack Web Development",
+    "item1Desc": "Production Next.js App Router, React 19, TypeScript, and Tailwind CSS. Clean, maintainable architectures built for speed, responsiveness, and zero technical debt.",
+    "item2Title": "2. Technical SEO & Indexation",
+    "item2Desc": "Granular schema.org JSON-LD structured data, dynamic XML sitemaps, fast TTFB, and Core Web Vitals optimization to win high-intent search visibility.",
+    "item3Title": "3. Conversion Rate Optimization (CRO)",
+    "item3Desc": "Frictionless form design, checkout flow engineering, client-side event tracking, and data-backed UX decisions that increase inquiry rates."
+  },
+  "CtaBanner": {
+    "heading": "Need a developer who understands growth?",
+    "subheading": "Whether you need a full web platform re-architecture, a high-converting marketing site, or technical SEO leadership, let's discuss your goals.",
+    "primaryBtn": "Schedule a Consultation",
+    "secondaryBtn": "Learn More About Me"
+  },
+  "About": {
+    "profileBadge": "Professional Profile",
+    "heading": "Web engineering and digital marketing grounded in real deliverables.",
+    "bioP1": "I am Faisal Khan, a web developer and digital marketer based in Karachi, Pakistan. Since 2020, I have operated at the intersection of modern frontend engineering and conversion marketing — building production web applications, educational platforms, and digital funnels that deliver tangible business value.",
+    "bioP2": "Currently, I build and operate web applications for an online Quran academy, including the live production platform Quranific.com and the enterprise multi-audience platform Quran Gateway LMS. Alongside web development, I remain active professionally in Arabic language work and editorial book proofreading.",
+    "downloadResume": "Download Resume (PDF)",
+    "employmentHeading": "Employment History",
+    "educationHeading": "Education & Credentials",
+    "languagesHeading": "Languages",
+    "skillsHeading": "Technical & Strategic Proficiencies",
+    "skillsSubheading": "Practical competencies applied daily in production environments.",
+    "principlesHeading": "Guiding Principles",
+    "p1Title": "1. Server-Rendered by Default",
+    "p1Desc": "Websites should deliver real HTML on first paint. Core content must be immediately readable by users on low-bandwidth networks and effortlessly crawlable by search engines.",
+    "p2Title": "2. Real Deliverables Over Vanities",
+    "p2Desc": "Technology choices serve business objectives. Every feature, component, and line of code must trace back to clear user value, operational stability, or verified business growth.",
+    "p3Title": "3. Non-Negotiable Accessibility",
+    "p3Desc": "Digital products must meet WCAG 2.2 AA standards as a baseline. Keyboard accessibility, clear semantic landmarks, and motion preference checks ensure universal usability.",
+    "ctaHeading": "Interested in discussing a project or role?",
+    "ctaSubheading": "Whether you need full-stack web engineering, custom LMS architecture, or conversion-focused marketing strategy, let's talk.",
+    "browseWork": "Browse Case Studies"
+  },
+  "Work": {
+    "portfolioBadge": "Client Portfolio",
+    "heading": "Engineered for impact. Measured in results.",
+    "subheading": "Every project featured here highlights a specific business objective, the technical architecture deployed to achieve it, and the verified metrics produced.",
+    "backToAll": "Back to all case studies",
+    "readFull": "Read full case study",
+    "similarChallenge": "Have a similar challenge in your organization?",
+    "similarDesc": "Let's evaluate your current site metrics, architectural bottlenecks, and conversion goals together.",
+    "viewMore": "View More Work"
+  },
+  "Contact": {
+    "badge": "Get in Touch",
+    "heading": "Let's build something high-impact.",
+    "subheading": "Whether you have an upcoming web development project, need a technical performance audit, or want to discuss full-time engineering roles, I'd love to connect.",
+    "directEmail": "Direct Email",
+    "directEmailDesc": "For project scopes, RFPs, or direct inquiries:",
+    "profiles": "Profiles",
+    "availability": "Availability",
+    "availabilityDesc": "Currently accepting select contract opportunities and open to conversations regarding senior frontend engineering roles.",
+    "formHeading": "Send a Message",
+    "formSubheading": "Fill out the details below and I will respond within 24 business hours.",
+    "yourName": "Your Name",
+    "workEmail": "Work Email",
+    "inquiryType": "Inquiry Type",
+    "projectDetails": "Project Details or Objective",
+    "placeholderName": "Jane Doe",
+    "placeholderEmail": "jane@company.com",
+    "placeholderMessage": "Tell me about your timeline, business goals, and technical requirements...",
+    "submit": "Send Inquiry",
+    "submitting": "Sending Inquiry...",
+    "successHeading": "Inquiry Sent Successfully",
+    "successDefaultMessage": "Thank you for reaching out! I will review your inquiry and get back to you within 24 business hours.",
+    "sendAnother": "Send Another Inquiry",
+    "inquiryTypes": {
+      "full-stack": "Full-Stack Web Development",
+      "seo-cro": "Technical SEO & CRO Audit",
+      "headless": "Headless Commerce Architecture",
+      "full-time": "Full-Time Engineering Role",
+      "advisory": "Consulting & Advisory"
+    }
+  },
+  "Footer": {
+    "bio": "Web developer and digital marketer focused on high-performance web applications, technical SEO, and conversion engineering.",
+    "navHeading": "Navigation",
+    "connectHeading": "Connect",
+    "rights": "Faisal Khan. All rights reserved.",
+    "builtWith": "Built with Next.js 16, React 19 & Tailwind CSS v4."
+  },
+  "Theme": {
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
+  },
+  "Language": {
+    "switchToArabic": "التبديل إلى العربية",
+    "switchToEnglish": "Switch to English"
+  }
+}

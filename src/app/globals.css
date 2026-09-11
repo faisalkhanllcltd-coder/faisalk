@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-arabic: var(--font-ibm-plex-sans-arabic);
+}
+
+/* Smooth View Transitions for theme toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
 /* ==========================================================================
    Native CSS Scroll-Driven Animations & Micro-Interactions
    Stack standard: animation-timeline: view() default with JS observer fallback.

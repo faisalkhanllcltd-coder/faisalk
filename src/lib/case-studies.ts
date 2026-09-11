@@ -28,36 +28,45 @@ export interface CaseStudy {
 const CASE_STUDIES_DIR = path.join(process.cwd(), "content", "case-studies");
 
 /**
- * Retrieve all case study metadata sorted by date (newest first).
+ * Get all unique slugs for static generation.
  */
-export async function getAllCaseStudies(): Promise<CaseStudyMetadata[]> {
+export async function getAllCaseStudySlugs(): Promise<string[]> {
   try {
     const files = await fs.readdir(CASE_STUDIES_DIR);
-    const mdxFiles = files.filter((file) => file.endsWith(".mdx") || file.endsWith(".md"));
+    const slugs = new Set<string>();
+
+    for (const file of files) {
+      if (file.endsWith(".mdx") || file.endsWith(".md")) {
+        // Strip .ar.mdx or .mdx to get the canonical slug
+        const baseSlug = file.replace(/\.(ar\.)?mdx?$/, "");
+        slugs.add(baseSlug);
+      }
+    }
+
+    return Array.from(slugs);
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Retrieve all case study metadata for a given locale, sorted by date (newest first).
+ */
+export async function getAllCaseStudies(locale: string = "en"): Promise<CaseStudyMetadata[]> {
+  try {
+    const slugs = await getAllCaseStudySlugs();
 
     const caseStudies = await Promise.all(
-      mdxFiles.map(async (fileName) => {
-        const filePath = path.join(CASE_STUDIES_DIR, fileName);
-        const fileContent = await fs.readFile(filePath, "utf8");
-        const { data } = matter(fileContent);
-
-        return {
-          title: data.title ?? "",
-          slug: data.slug ?? fileName.replace(/\.mdx?$/, ""),
-          client: data.client ?? "",
-          role: data.role ?? "",
-          timeline: data.timeline ?? "",
-          date: data.date ?? "",
-          summary: data.summary ?? "",
-          metrics: data.metrics ?? [],
-          tags: data.tags ?? [],
-          featured: Boolean(data.featured),
-        } as CaseStudyMetadata;
+      slugs.map(async (slug) => {
+        const study = await getCaseStudyBySlug(slug, locale);
+        return study ? study.metadata : null;
       })
     );
 
+    const validStudies = caseStudies.filter((s): s is CaseStudyMetadata => s !== null);
+
     // Sort newest first
-    return caseStudies.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    return validStudies.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch (error) {
     console.error("Error reading case studies directory:", error);
     return [];
@@ -65,16 +74,28 @@ export async function getAllCaseStudies(): Promise<CaseStudyMetadata[]> {
 }
 
 /**
- * Retrieve a single case study by slug, including raw MDX content.
+ * Retrieve a single case study by slug and locale, including raw MDX content.
  */
-export async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null> {
+export async function getCaseStudyBySlug(slug: string, locale: string = "en"): Promise<CaseStudy | null> {
   try {
-    const filePath = path.join(CASE_STUDIES_DIR, `${slug}.mdx`);
+    let filePath = path.join(CASE_STUDIES_DIR, `${slug}.mdx`);
+
+    // If requested locale is non-English, check for localized file first
+    if (locale && locale !== "en") {
+      const localizedPath = path.join(CASE_STUDIES_DIR, `${slug}.${locale}.mdx`);
+      try {
+        await fs.access(localizedPath);
+        filePath = localizedPath;
+      } catch {
+        // Fall back to default English file
+      }
+    }
+
     let fileContent: string;
     try {
       fileContent = await fs.readFile(filePath, "utf8");
     } catch {
-      // Fallback to .md if .mdx doesn't exist
+      // Fallback to .md
       const fallbackPath = path.join(CASE_STUDIES_DIR, `${slug}.md`);
       fileContent = await fs.readFile(fallbackPath, "utf8");
     }
@@ -83,7 +104,7 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null
 
     const metadata: CaseStudyMetadata = {
       title: data.title ?? "",
-      slug: data.slug ?? slug,
+      slug: slug,
       client: data.client ?? "",
       role: data.role ?? "",
       timeline: data.timeline ?? "",
@@ -97,19 +118,5 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null
     return { metadata, content };
   } catch {
     return null;
-  }
-}
-
-/**
- * Get all slugs for static generation.
- */
-export async function getAllCaseStudySlugs(): Promise<string[]> {
-  try {
-    const files = await fs.readdir(CASE_STUDIES_DIR);
-    return files
-      .filter((file) => file.endsWith(".mdx") || file.endsWith(".md"))
-      .map((file) => file.replace(/\.mdx?$/, ""));
-  } catch {
-    return [];
   }
 }
