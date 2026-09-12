@@ -6,8 +6,8 @@ export const SITE_CONFIG = {
   title: "Faisal Khan — Web Developer & Digital Marketer",
   description:
     "Faisal Khan is a web developer and digital marketer engineering high-performance web applications and conversion funnels that drive qualified business outcomes.",
-  url: "https://faisalk.dev",
-  ogImage: "https://faisalk.dev/og-default.png",
+  url: "https://www.faisalk.dev",
+  ogImage: "https://www.faisalk.dev/og-default.png",
   twitterHandle: "@faisalkhandev",
   email: "contact@faisalk.dev",
   github: "https://github.com/faisalkhanllcltd-coder",
