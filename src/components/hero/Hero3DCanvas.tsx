@@ -2,7 +2,7 @@
 
 import React, { Component, ReactNode, useSyncExternalStore, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import { GrowthMeshScene } from "./GrowthMeshScene";
+import { KineticTypographyScene } from "./KineticTypographyScene";
 import { HeroPosterFallback } from "./HeroPosterFallback";
 
 // Error boundary to gracefully catch any WebGL crash or context loss
@@ -109,7 +109,11 @@ function useInteraction(): boolean {
   return interacted;
 }
 
-export default function Hero3DCanvas() {
+interface Hero3DCanvasProps {
+  locale?: string;
+}
+
+export default function Hero3DCanvas({ locale = "en" }: Hero3DCanvasProps) {
   const isMounted = useSyncExternalStore(emptySubscribe, getClientSnapshot, getServerSnapshot);
   const hasWebGL = useSyncExternalStore(emptySubscribe, getWebGLSnapshot, getWebGLServerSnapshot);
   const prefersReducedMotion = useSyncExternalStore(
@@ -120,35 +124,34 @@ export default function Hero3DCanvas() {
   const hasInteracted = useInteraction();
 
   // During SSR or pre-hydration, or if WebGL is unavailable, reduced motion requested,
-  // or user hasn't interacted yet: Render the static SVG/CSS poster fallback
+  // or user hasn't interacted yet: Render the static CSS poster fallback
   if (!isMounted || !hasWebGL || prefersReducedMotion || !hasInteracted) {
-    return <HeroPosterFallback />;
+    return <HeroPosterFallback locale={locale} />;
   }
 
   return (
-    <WebGLErrorBoundary fallback={<HeroPosterFallback />}>
-      <div className="relative w-full h-[320px] sm:h-[380px] lg:h-[440px] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl">
+    <WebGLErrorBoundary fallback={<HeroPosterFallback locale={locale} />}>
+      <div className="relative w-full h-[320px] sm:h-[380px] lg:h-[440px] rounded-2xl overflow-hidden bg-emerald-950/[0.04] border border-emerald-900/15 shadow-xl dark:bg-slate-950 dark:border-slate-800 dark:shadow-2xl transition-colors duration-200">
         <Canvas
-          camera={{ position: [0, 0, 5.2], fov: 45 }}
+          camera={{ position: [0, 0, 5.0], fov: 45 }}
           dpr={[1, 2]}
           gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
           aria-hidden="true"
         >
-          <GrowthMeshScene reducedMotion={prefersReducedMotion} />
+          <KineticTypographyScene reducedMotion={prefersReducedMotion} locale={locale} />
         </Canvas>
 
         {/* Ambient Overlay Vignette */}
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(2,6,23,0.6)_100%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(6,95,70,0.06)_100%)] dark:bg-[radial-gradient(circle_at_center,transparent_40%,rgba(2,6,23,0.6)_100%)]"
           aria-hidden="true"
         />
 
         {/* Status Indicator Badge */}
-        <div className="pointer-events-none absolute bottom-3 end-3 rounded-full bg-slate-900/80 px-2.5 py-1 text-[10px] font-medium text-slate-400 backdrop-blur-xs border border-slate-700/50">
-          Interactive 3D Engine
+        <div className="pointer-events-none absolute bottom-3 end-3 rounded-full bg-white/80 dark:bg-slate-900/80 px-2.5 py-1 text-[10px] font-medium text-emerald-800 dark:text-emerald-400/80 backdrop-blur-xs border border-emerald-600/20 dark:border-emerald-500/20 shadow-xs">
+          Kinetic Typography Engine
         </div>
       </div>
     </WebGLErrorBoundary>
   );
 }
-

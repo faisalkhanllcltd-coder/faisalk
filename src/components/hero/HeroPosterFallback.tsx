@@ -1,84 +1,64 @@
 import React from "react";
 
-export function HeroPosterFallback() {
+interface HeroPosterFallbackProps {
+  locale?: string;
+}
+
+export function HeroPosterFallback({ locale = "en" }: HeroPosterFallbackProps) {
+  const isArabic = locale === "ar";
+
   return (
     <div
-      role="img"
-      aria-label="Interactive 3D Growth Systems visualization (static representation)"
-      className="relative w-full h-[320px] sm:h-[380px] lg:h-[440px] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl flex items-center justify-center select-none"
+      role="region"
+      aria-label={isArabic ? "شعار فيصل خان الهندسي" : "Faisal Khan Editorial Typography"}
+      className="relative w-full h-[320px] sm:h-[380px] lg:h-[440px] rounded-2xl overflow-hidden bg-emerald-950/[0.04] border border-emerald-900/15 shadow-xl dark:bg-slate-950 dark:border-slate-800 dark:shadow-2xl flex flex-col items-center justify-center p-6 sm:p-8 select-none text-center transition-colors duration-200"
+      dir={isArabic ? "rtl" : "ltr"}
     >
-      {/* Ambient background glow */}
+      {/* Ambient Radial Depth Glow */}
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.15),transparent_70%)] pointer-events-none"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(5,150,105,0.08),transparent_75%)] dark:bg-[radial-gradient(circle_at_50%_40%,rgba(52,211,153,0.12),transparent_75%)] pointer-events-none"
         aria-hidden="true"
       />
 
-      {/* Static Geometric Mesh SVG */}
-      <svg
-        className="w-4/5 h-4/5 max-w-[320px] max-h-[320px] text-blue-500 drop-shadow-[0_0_20px_rgba(59,130,246,0.3)]"
-        viewBox="0 0 200 200"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+      {/* Rim Light Reflection Gradient */}
+      <div
+        className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-48 bg-emerald-500/10 blur-3xl pointer-events-none rounded-full"
         aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="#60a5fa" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0.9" />
-          </linearGradient>
-          <linearGradient id="polyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#2563eb" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#1e3a8a" stopOpacity="0.05" />
-          </linearGradient>
-          <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
+      />
 
-        {/* Outer Orbit Rings */}
-        <circle cx="100" cy="100" r="85" stroke="#1e293b" strokeWidth="1" strokeDasharray="4 4" />
-        <circle cx="100" cy="100" r="70" stroke="#334155" strokeWidth="0.8" opacity="0.6" />
+      {/* Editorial Kinetic Typography Presentation */}
+      <div className="relative z-10 max-w-xs sm:max-w-sm mx-auto space-y-4">
+        {/* Beat 1: Primary Line */}
+        <p
+          className={`text-xl sm:text-2xl font-semibold tracking-tight text-[#065f46] dark:text-[#34d399] drop-shadow-[0_1px_8px_rgba(52,211,153,0.2)] leading-[1.3] ${
+            isArabic ? "font-arabic" : "font-serif italic"
+          }`}
+        >
+          {isArabic
+            ? "«من أصول العلوم العربية إلى هندسة البرمجيات.»"
+            : "From Arabic scholarship to shipped software."}
+        </p>
 
-        {/* Polyhedral Facets */}
-        <polygon points="100,30 160,65 140,135" fill="url(#polyGrad)" stroke="url(#lineGrad)" strokeWidth="1.2" />
-        <polygon points="100,30 140,135 60,135" fill="url(#polyGrad)" stroke="url(#lineGrad)" strokeWidth="1.2" />
-        <polygon points="100,30 60,135 40,65" fill="url(#polyGrad)" stroke="url(#lineGrad)" strokeWidth="1.2" />
-        <polygon points="160,65 140,135 100,170" fill="url(#polyGrad)" stroke="url(#lineGrad)" strokeWidth="1.2" />
-        <polygon points="40,65 60,135 100,170" fill="url(#polyGrad)" stroke="url(#lineGrad)" strokeWidth="1.2" />
-        <polygon points="140,135 60,135 100,170" fill="url(#polyGrad)" stroke="url(#lineGrad)" strokeWidth="1.2" />
+        {/* Subtle Decorative Divider */}
+        <div className="flex items-center justify-center gap-2" aria-hidden="true">
+          <span className="h-px w-8 bg-gradient-to-r from-transparent to-emerald-500/40" />
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600/60 dark:bg-emerald-400/60" />
+          <span className="h-px w-8 bg-gradient-to-l from-transparent to-emerald-500/40" />
+        </div>
 
-        {/* Central Core Lattice Lines */}
-        <line x1="100" y1="30" x2="100" y2="100" stroke="#60a5fa" strokeWidth="1" strokeDasharray="2 2" />
-        <line x1="160" y1="65" x2="100" y2="100" stroke="#60a5fa" strokeWidth="1" strokeDasharray="2 2" />
-        <line x1="40" y1="65" x2="100" y2="100" stroke="#60a5fa" strokeWidth="1" strokeDasharray="2 2" />
-        <line x1="140" y1="135" x2="100" y2="100" stroke="#60a5fa" strokeWidth="1" strokeDasharray="2 2" />
-        <line x1="60" y1="135" x2="100" y2="100" stroke="#60a5fa" strokeWidth="1" strokeDasharray="2 2" />
-        <line x1="100" y1="170" x2="100" y2="100" stroke="#60a5fa" strokeWidth="1" strokeDasharray="2 2" />
+        {/* Beat 2: Secondary Line */}
+        <p
+          className={`text-xs sm:text-sm font-medium tracking-wide text-[#0f172a] dark:text-[#e2e8f0] drop-shadow-[0_1px_2px_rgba(0,0,0,0.1)] ${
+            isArabic ? "font-arabic" : "tracking-wider uppercase font-semibold"
+          }`}
+        >
+          {isArabic ? "«لغتان. وحرفة واحدة.»" : "Two languages. One craft."}
+        </p>
+      </div>
 
-        {/* Nodes / Vertices */}
-        <circle cx="100" cy="30" r="4" fill="#60a5fa" filter="url(#glow)" />
-        <circle cx="160" cy="65" r="3.5" fill="#3b82f6" />
-        <circle cx="40" cy="65" r="3.5" fill="#3b82f6" />
-        <circle cx="140" cy="135" r="3.5" fill="#2563eb" />
-        <circle cx="60" cy="135" r="3.5" fill="#2563eb" />
-        <circle cx="100" cy="170" r="4" fill="#60a5fa" filter="url(#glow)" />
-        <circle cx="100" cy="100" r="4.5" fill="#93c5fd" filter="url(#glow)" />
-
-        {/* Ambient Data Points */}
-        <circle cx="25" cy="110" r="1.5" fill="#38bdf8" opacity="0.7" />
-        <circle cx="175" cy="90" r="1.5" fill="#38bdf8" opacity="0.7" />
-        <circle cx="120" cy="20" r="1" fill="#60a5fa" opacity="0.6" />
-        <circle cx="80" cy="185" r="1.2" fill="#60a5fa" opacity="0.6" />
-      </svg>
-
-      {/* Status indicator */}
-      <div className="pointer-events-none absolute bottom-3 end-3 rounded-full bg-slate-900/80 px-2.5 py-1 text-[10px] font-medium text-slate-400 backdrop-blur-xs border border-slate-700/50">
-        Growth Systems Architecture
+      {/* Status indicator badge */}
+      <div className="pointer-events-none absolute bottom-3 end-3 rounded-full bg-white/80 dark:bg-slate-900/80 px-2.5 py-1 text-[10px] font-medium text-emerald-800 dark:text-emerald-400/80 backdrop-blur-xs border border-emerald-600/20 dark:border-emerald-500/20 shadow-xs">
+        Kinetic Typography Engine
       </div>
     </div>
   );

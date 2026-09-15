@@ -81,12 +81,12 @@ export default async function ContactPage({ params }: ContactPageProps) {
               </li>
               <li>
                 <a
-                  href={SITE_CONFIG.linkedin}
+                  href={SITE_CONFIG.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-medium text-gray-700 hover:text-blue-600 transition dark:text-gray-300 dark:hover:text-blue-400 inline-flex items-center gap-1"
                 >
-                  <span>LinkedIn</span>
+                  <span>Facebook</span>
                   <span aria-hidden="true" className="rtl:rotate-180 inline-block">&rarr;</span>
                 </a>
               </li>

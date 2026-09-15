@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   twitterHandle: "@faisalkhandev",
   email: "contact@faisalk.dev",
   github: "https://github.com/faisalkhanllcltd-coder",
-  linkedin: "https://linkedin.com/in/faisalkhan",
+  facebook: "https://facebook.com/founder.quranific",
 };
 
 /**
@@ -101,7 +101,7 @@ export function getPersonSchema() {
     name: SITE_CONFIG.name,
     jobTitle: "Web Developer & Digital Marketer",
     url: SITE_CONFIG.url,
-    sameAs: [SITE_CONFIG.github, SITE_CONFIG.linkedin],
+    sameAs: [SITE_CONFIG.github, SITE_CONFIG.facebook],
     description: SITE_CONFIG.description,
     knowsAbout: [
       "Web Development",

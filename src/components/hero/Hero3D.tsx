@@ -3,7 +3,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { HeroPosterFallback } from "./HeroPosterFallback";
 
-type Hero3DCanvasComponent = React.ComponentType;
+interface Hero3DProps {
+  locale?: string;
+}
+
+type Hero3DCanvasComponent = React.ComponentType<{ locale?: string }>;
 
 /**
  * Hero3D defers importing and mounting the Three.js / R3F / Drei chunk until:
@@ -14,7 +18,7 @@ type Hero3DCanvasComponent = React.ComponentType;
  * initial page hydration or synthetic test runs, guaranteeing mobile Time to
  * Interactive (TTI) stays strictly under the <= 3000ms Lighthouse budget.
  */
-export function Hero3D() {
+export function Hero3D({ locale = "en" }: Hero3DProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [shouldLoad, setShouldLoad] = useState(false);
   const [CanvasComponent, setCanvasComponent] = useState<Hero3DCanvasComponent | null>(null);
@@ -110,7 +114,11 @@ export function Hero3D() {
 
   return (
     <div ref={containerRef} className="w-full">
-      {CanvasComponent ? <CanvasComponent /> : <HeroPosterFallback />}
+      {CanvasComponent ? (
+        <CanvasComponent locale={locale} />
+      ) : (
+        <HeroPosterFallback locale={locale} />
+      )}
     </div>
   );
 }
