@@ -53,9 +53,15 @@ export default async function HomePage({ params }: HomePageProps) {
               className="group inline-flex items-center gap-2 rounded-lg bg-gray-950 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 dark:bg-white dark:text-gray-950 dark:hover:bg-gray-200"
             >
               <span>{tHero("viewWork")}</span>
-              <span className="rtl:rotate-180 inline-block transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" aria-hidden="true">
-                &rarr;
-              </span>
+              <DotLottieIcon
+                src="/lottie/arrow-interaction.lottie"
+                className="w-4 h-4 rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
+                fallback={
+                  <span className="rtl:rotate-180 inline-block transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" aria-hidden="true">
+                    &rarr;
+                  </span>
+                }
+              />
             </Link>
             <Link
               href="/contact"
@@ -67,7 +73,7 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
 
         <div className="lg:col-span-5 w-full">
-          <Hero3D />
+          <Hero3D locale={locale} />
         </div>
       </section>
 

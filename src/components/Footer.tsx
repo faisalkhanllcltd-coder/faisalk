@@ -73,22 +73,21 @@ export async function Footer() {
               </li>
               <li>
                 <a
-                  href={SITE_CONFIG.linkedin}
+                  href={SITE_CONFIG.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition hover:text-gray-950 dark:text-gray-300 dark:hover:text-white"
-                  aria-label="Faisal Khan on LinkedIn (opens in new tab)"
+                  aria-label="Faisal Khan on Facebook (opens in new tab)"
                 >
-                  LinkedIn
+                  Facebook
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-gray-200 pt-6 text-xs text-gray-600 flex flex-col sm:flex-row items-center justify-between dark:border-gray-800 dark:text-gray-400">
+        <div className="mt-10 border-t border-gray-200 pt-6 text-xs text-gray-600 flex items-center justify-between dark:border-gray-800 dark:text-gray-400">
           <p>&copy; {currentYear} {tFooter("rights")}</p>
-          <p className="mt-2 sm:mt-0">{tFooter("builtWith")}</p>
         </div>
       </div>
     </footer>
